@@ -1,0 +1,64 @@
+type Order {
+    orderid: Int!
+    customer: Customer!
+    items: [OrderDetail]!
+    employeeid: Int
+    orderdate: String
+    requireddate: String
+    shippeddate: String
+    shipvia: Int
+    freight: Float
+    shipname: String
+    shipaddress: String
+    shipcity: String
+    shipregion: String
+    shippostalcode: String
+    shipcountry: String
+}
+
+type OrderDetail {
+    order: Order!
+    product: Product!
+    unitprice: Float
+    quantity: Int!
+    discount: Float
+}
+
+type Customer {
+    customerid: String!
+    companyname: String!
+    contactname: String
+    contacttitle: String
+    address: String
+    city: String
+    region: String
+    postalcode: String
+    country: String
+    phone: String
+    fax: String
+    orders(last: Int! = 3): [Order]!
+}
+
+type Product {
+    productid: Int!
+    productname: String!
+    supplierid: Int
+    categoryid: Int
+    quantityperunit: String
+    unitprice: Float!
+    unitsinstock: Int
+    unitsonorder: Int
+    reorderlevel: Int
+    discontinued: Boolean
+}
+
+type Query {
+    customer(id: Int!): Customer
+    customers: [Customer]!
+    products(name: String!): [Product]!
+    text: String!
+}
+
+type Mutation {
+    updateCustomer(customerid: String!, companyname: String): Customer!
+}
