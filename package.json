@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "apollo-server": "^2.6.9",
+    "apollo-server": "^2.25.3",
     "edge-js": "^12.3.1",
     "esm": "^3.2.25",
     "graphql": "^14.4.2"
